@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace GithubContracts
@@ -17,7 +18,7 @@ namespace GithubContracts
         public required Repository Repo { get; set; }
 
         [JsonPropertyName("payload")]
-        public object? Payload { get; set; }
+        public JsonElement Payload { get; set; }
 
         [JsonPropertyName("public")]
         public bool Public { get; set; }
@@ -72,11 +73,34 @@ namespace GithubContracts
 
         [JsonPropertyName("gravatar_id")]
         public string? GravatarId { get; set; }
-
         [JsonPropertyName("url")]
         public required string Url { get; set; }
 
         [JsonPropertyName("avatar_url")]
         public string? AvatarUrl { get; set; }
     }
+
+    // Payloads
+
+    public class CreateDeleteEventPayload
+    {
+        [JsonPropertyName("ref_type")]
+        public required string RefType { get; set; }
+    }
+
+    public class PushEventPayload
+    {
+        [JsonPropertyName("size")]
+        public required int Size { get; set; }
+    }
+
+    public class IssueEventPayload
+    {
+        [JsonPropertyName("action")]
+        public required string Action { get; set; }
+    }
+
+    public class PullRequestEventPayload : IssueEventPayload { };
+
+    public class WatchEventPayload : IssueEventPayload { };
 }
