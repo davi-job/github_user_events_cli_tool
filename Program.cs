@@ -144,16 +144,10 @@ while (running)
     }
     catch (Exception ex)
     {
+        Console.WriteLine();
         Console.WriteLine(ex.Message);
-
-        Console.WriteLine("\nPress Enter to try again...");
-        Console.ReadLine();
 
         args = [];
         continue;
     }
-
-    Console.Write("\nPress enter to exit.");
-    Console.ReadLine();
-    running = false;
 }
