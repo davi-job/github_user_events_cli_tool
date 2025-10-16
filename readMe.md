@@ -24,7 +24,7 @@ This tool interacts with the GitHub API to retrieve events associated with a spe
 1. **Clone the Repository**:
 
     ```bash
-    git clone https://github.com/yourusername/github_user_events_cli_tool.git
+    git clone https://github.com/davi-job/github_user_events_cli_tool.git
     cd github_user_events_cli_tool
     ```
 
